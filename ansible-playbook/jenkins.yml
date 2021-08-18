@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: updating the repo
+     command: "apt update"
+   - name: installing the prerequisite package [Java-8]
+     apt: name={{ item }}  state=present
+     loop:
+      - openjdk-8-jdk
+   - name: adding the jenkins gpg key
+     apt_key: 
+       key: https://pkg.jenkins.io/debian/jenkins.io.key
+       state: present
+   - name: adding jenkins repo
+     apt_repository: 
+       repo: deb http://pkg.jenkins.io/debian-stable binary
+       state: present
+       filename: jenkins
+   - name: updating the repo list
+     command: "apt update"
+   - name: installing jenkins package
+     apt: name=jenkins state=present
+   - name: starting the service 
+     service: name=jenkins state=started enabled=yes
+   - name: copying the jenkins password 
+     copy: 
+      src: /var/lib/jenkins/secrets/initialAdminPassword
+      dest: /tmp/jenkins.passwd
+      remote_src: yes
+     
