@@ -61,9 +61,9 @@ resource "google_compute_instance" "jenkins-server" {
 
         preemptible             =   var.preemptible
     }
-    service_accont  {
+    service_account  {
 
-        scope                   =   var.scope
+        scopes                   =   var.scope
     }
 
 }

@@ -45,7 +45,9 @@ variable "attached_disk" {
       mode                       = string
     }
   ))
-  default = []
+  default = [{
+      mode                      =  "READ_WRITE"
+  }]
 }
 
 #boot disk
