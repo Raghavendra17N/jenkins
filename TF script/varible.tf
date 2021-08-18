@@ -25,7 +25,7 @@ variable "project" {
 variable "tags" {
   description = "(optional) - The list of tags attached to the instance."
   type        = set(string)
-  default     = null
+  default     = ["jenkins"]
 }
 
 variable "zone" {
