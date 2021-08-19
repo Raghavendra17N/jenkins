@@ -35,6 +35,7 @@ resource "google_compute_instance" "jenkins-server" {
     machine_type                =   var.machine_type
     zone                        =   var.zone
     labels                      =   var.labels
+    metadata_startup_script     =   file("startup.sh")
     tags                        =   var.tags
     boot_disk {
 
