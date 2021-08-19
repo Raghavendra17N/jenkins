@@ -7,4 +7,4 @@ terraform apply out.plan
 sleep 10
 cd ../;
 sh ssh_connection.sh 
-ansible-playbook ansible-playbook/jenkins.yml -i ansible-playbook/inventory
+sudo su raghu -c "ansible-playbook ansible-playbook/jenkins.yml -i ansible-playbook/inventory"
