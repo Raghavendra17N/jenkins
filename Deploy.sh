@@ -1,6 +1,7 @@
 source ~/.bash_profile
 cat /dev/null > ansible-playbook/inventory
 cd TF\ script/;
+terraform init
 terraform plan \
  -out out.plan 
 terraform apply out.plan
