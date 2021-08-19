@@ -13,7 +13,7 @@ resource "null_resource" "jenkins-IP" {
 
     provisioner "local-exec"{
 
-        command = "echo ${google_compute_instance.jenkins-server.name} ansible_host=${google_compute_instance.jenkins-server.network_interface.0.access_config.0.nat_ip} >> ../ansible-playbook/inventory"
+        command = "echo ${google_compute_instance.jenkins-server.name} ansible_host=${google_compute_instance.jenkins-server.network_interface.0.access_config.0.nat_ip} ansible_python_interpreter=/usr/bin/python3 >> ../ansible-playbook/inventory"
     }
 }
 
