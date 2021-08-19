@@ -14,7 +14,7 @@
        state: present
    - name: adding jenkins repo
      apt_repository: 
-       repo: deb http://pkg.jenkins.io/debian-stable binary
+       repo: deb http://pkg.jenkins.io/debian-stable binary/
        state: present
        filename: jenkins
    - name: updating the repo list
