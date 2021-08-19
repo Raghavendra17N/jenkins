@@ -7,7 +7,7 @@ resource "null_resource" "empty_inventory" {
 }
 
 resource "null_resource" "jenkins-IP" {
-    trigger     =   {
+    triggers     =   {
         order   =   "${null_resource.empty_inventory.id}"
     }
 
