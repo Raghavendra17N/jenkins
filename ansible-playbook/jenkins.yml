@@ -23,9 +23,4 @@
      apt: name=jenkins state=present
    - name: starting the service 
      service: name=jenkins state=started enabled=yes
-   - name: copying the jenkins password 
-     copy: 
-      src: /var/lib/jenkins/secrets/initialAdminPassword
-      dest: /tmp/jenkins.passwd
-      remote_src: yes
      
