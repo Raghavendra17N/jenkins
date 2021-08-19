@@ -33,6 +33,7 @@ resource "google_compute_instance" "jenkins-server" {
 
     name                        =   var.name
     machine_type                =   var.machine_type
+    zone                        =   var.zone
     labels                      =   var.labels
     tags                        =   var.tags
     boot_disk {
@@ -58,7 +59,7 @@ resource "google_compute_instance" "jenkins-server" {
         }
     }
     scheduling{
-
+        automatic_restart       =   var.automatic_restart
         preemptible             =   var.preemptible
     }
     service_account  {

@@ -93,6 +93,12 @@ variable "preemptible" {
     default     =  true
 }
 
+variable "automatic_restart"{
+  description = "Based on Preemptible requirement True/false"
+  type          = bool
+  default       = false
+}
+
 variable "scope" {
     description =   "scope for the service account"
     type        =   list(string)
